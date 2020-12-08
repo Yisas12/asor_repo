@@ -1,0 +1,3 @@
+Cuando se borra un enlace simbólico, se borra el inodo del enlace en sí, pero no el archivo.
+Cuando se borra un enlace rígido, también se borra el inodo correspondiente a ese enlace.
+Cuando se borra el archivo original, se borra el inodo del archivo original y el archivo.
