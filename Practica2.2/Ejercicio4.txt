@@ -1,0 +1,1 @@
+En este apartado, al haberle quitado el permiso de ejecución, no nos permite acceder al directorio.
