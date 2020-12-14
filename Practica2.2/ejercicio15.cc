@@ -1,5 +1,3 @@
-  GNU nano 2.3.1            File: ejercicio15.cc                                
-
 #include <stdio.h>
 #include <fcntl.h>
 #include <unistd.h>
@@ -18,7 +16,39 @@ int main(int argc, char **argv){
   cerrojo.l_start = 0;
   cerrojo.l_len = 0;
   cerrojo.l_pid = getpid();
+  
+ if(cerrojo.l_type == F_UNLCK){ //si cerrojo desbloqueado
+    cerrojo.l_type = F_WRLCK;
+    cerrojo.l_whence = SEEK_SET;
+    cerrojo.l_start = 0;
+    cerrojo.l_len = 0;
+    cerrojo.l_pid = getpid();
+   
+    if(fcntl(file, F_GETLK, cerrojo) == -1){
+      close(file);
+      return 1;
+    }else cout << "Cerrojo de escritura creado\n";
 
-                               [ Read 54 lines ]
-^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Page ^K Cut Text  ^C Cur Pos
-^X Exit      ^J Justify   ^W Where Is  ^V Next Page ^U UnCut Text^T To Spell
+    time_t tim = time(NULL);
+
+    struct tm *tm = localtime(&tim);
+
+    char buffer[1024];
+
+    sprintf (buffer, "Hora: %d:%d\n", tm->tm_hour, tm->tm_min);
+    write(file, &buffer, strlen(buffer));
+
+    sleep(30);
+
+    cerrojo.l_type = F_WRLCK;
+    cerrojo.l_whence = SEEK_SET;
+    cerrojo.l_start = 0;
+    cerrojo.l_len = 0;
+    cerrojo.l_pid = getpid();
+    }
+  close(file);
+
+  return 1;
+}
+
+
