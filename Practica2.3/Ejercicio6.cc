@@ -13,7 +13,6 @@ using namespace std;
 int main(){
 
   pid_t pid, sid;
-  int daemon;
 
   pid = fork();
   if(pid == -1){
@@ -21,8 +20,8 @@ int main(){
     exit(EXIT_FAILURE);
   }
   else if(pid == 0){
-    pid_t mi_sid = setsid(); //creamos sesión
-    char *dir = chdir("/tmp");
+    pid_t msid = setsid(); //creo sesión
+    int dir = chdir("/tmp");
 
     cout << "PID: " << getpid() << "\n";
     cout << "PPID: " << getppid() << "\n";
