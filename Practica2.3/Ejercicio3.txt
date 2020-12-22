@@ -1,0 +1,1 @@
+Si probamos con la prioridad 12, el máximo, el mínimo y la política de planificación es la misma pero cambia la prioridad.
