@@ -1,0 +1,6 @@
+Todos los procesos del usuario actual en formato extendido: ps -f
+
+Procesos del sistema, incluyendo el identificador del proceso, el identificador del grupo de procesos, el identificador de sesión, el estado y la línea de comandos: 
+ps -C, ps -g, ps -p, ps -s, ps -t
+
+Comparten el identificador de la línea de comandos. 
