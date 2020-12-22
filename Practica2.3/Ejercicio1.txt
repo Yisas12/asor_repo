@@ -1,0 +1,2 @@
+nice -10 bash
+chrt -f -p 12 2070
