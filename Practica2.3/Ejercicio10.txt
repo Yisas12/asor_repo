@@ -1,0 +1,3 @@
+El código de salida indica la acción que se ha realizado con el kill.
+Por ejemplo, si haces un kill [PID] el código de salida es "terminated" porque has matado al proceso.
+Si haces un HUP del proceso, pone hangup porque lo paras y reinicias.
