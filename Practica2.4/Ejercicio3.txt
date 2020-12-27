@@ -1,0 +1,4 @@
+Para realizar esto creamos un pipe con el comando: mkfifo pipe
+Después hacemos la conexión entre las dos terminales:
+ls > pipe (con este comando decimos que se ejecute ls a través del pipe en la primera terminal)
+En la segunda terminal hacemos: cat < pipe (y conseguimos que se muestre el comando ls en la segunda terminal)
